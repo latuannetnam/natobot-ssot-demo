@@ -33,12 +33,12 @@ class DemoDataSource(DataSource):
 
     def load_source_adapter(self):
         """Load data from Demo into DiffSync models."""
-        self.source_adapter = demo.DemoAdapter(job=self, sync=self.sync)
+        self.source_adapter = DemoRemoteAdapter(job=self, sync=self.sync)
         self.source_adapter.load()
 
     def load_target_adapter(self):
         """Load data from Nautobot into DiffSync models."""
-        self.target_adapter = nautobot.NautobotAdapter(job=self, sync=self.sync)
+        self.target_adapter = DemoNautobotAdapter(job=self, sync=self.sync)
         self.target_adapter.load()
 
     def run(self, dryrun, memory_profiling, debug, *args, **kwargs):  # pylint: disable=arguments-differ

@@ -16,7 +16,7 @@ class DeviceSSoTModel(NautobotModel):
     _attributes = (
         "status__name",
         "role__name",
-        "device_type__name",
+        "device_type__model",
         "location__name",
         "example_custom_field"
     )
@@ -24,7 +24,7 @@ class DeviceSSoTModel(NautobotModel):
     name: str
     status__name: Optional[str] = None
     role__name: Optional[str] = None
-    device_type__name: Optional[str] = None
+    device_type__model: Optional[str] = None
     location__name: Optional[str] = None
     ip_address: Optional[str] = None
     example_custom_field: Annotated[str, CustomFieldAnnotation(key="my_example_custom_field")]

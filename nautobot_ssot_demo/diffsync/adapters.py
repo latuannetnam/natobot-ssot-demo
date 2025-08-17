@@ -28,7 +28,13 @@ class DemoRemoteAdapter(Adapter):
 
     def load(self):
         """Load data from Demo into SSoT models."""
-        raise NotImplementedError()
+        test_device = self.device(name="Test Device",
+                                status__name="Active",
+                                role__name="Router",                                      
+                                device_type__model="Cisco Router",
+                                location__name="Vietnam", 
+                                example_custom_field="Test Field value")
+        self.add(test_device)
 
 
 class DemoNautobotAdapter(NautobotAdapter):
