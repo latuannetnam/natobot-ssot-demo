@@ -1,0 +1,34 @@
+{
+    "cookiecutter": {
+        "codeowner_github_usernames": "latuannetnam",
+        "full_name": "Le Anh Tuan",
+        "email": "latuannetnam@gmail.com",
+        "github_org": "netnam",
+        "system_of_record": "Demo",
+        "system_of_record_camel": "Demo",
+        "system_of_record_slug": "demo",
+        "model_class_name": "DemoSSoT",
+        "direction_of_sync": "To Nautobot",
+        "app_name": "nautobot_ssot_demo",
+        "verbose_name": "Nautobot Ssot Demo",
+        "app_slug": "nautobot-ssot-demo",
+        "project_slug": "nautobot-app-ssot-demo",
+        "repo_url": "https://github.com/netnam/nautobot-app-ssot-demo",
+        "base_url": "ssot-demo",
+        "min_nautobot_version": "2.0.0",
+        "max_nautobot_version": "2.9999",
+        "camel_name": "NautobotSsotDemo",
+        "project_short_description": "Nautobot Ssot Demo",
+        "open_source_license": "Apache-2.0",
+        "docs_base_url": "https://docs.nautobot.com",
+        "docs_app_url": "https://docs.nautobot.com/projects/nautobot-ssot-demo/en/latest",
+        "_extensions": [
+            "local_extensions.camel_case_to_kebab",
+            "local_extensions.camel_case_to_words"
+        ],
+        "_template": "https://github.com/nautobot/cookiecutter-nautobot-app",
+        "_output_dir": "/home/latuan/Local_Programming/nautobot-project/natobot-ssot-demo/outputs",
+        "_repo_dir": "/home/latuan/.cookiecutters/cookiecutter-nautobot-app/nautobot-app-ssot",
+        "_checkout": null
+    }
+}
