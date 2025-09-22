@@ -37,12 +37,14 @@ class DemoSSoT(PrimaryModel):  # pylint: disable=too-many-ancestors
 
 
 @extras_features("custom_links", "custom_validators", "export_templates", "graphql", "webhooks")
-class JuniperInterface(BaseInterface):  # pylint: disable=too-many-ancestors
+class JuniperInterface(PrimaryModel):  # pylint: disable=too-many-ancestors
     """Model for Juniper Interface."""
     interface = models.OneToOneField(
         to=Interface,
-        on_delete=models.CASCADE,        
-        primary_key=True,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,        
+        # primary_key=True,
     )
     # additional model fields
     vlan_tagging = models.BooleanField(default=False)
@@ -57,6 +59,7 @@ class JuniperInterface(BaseInterface):  # pylint: disable=too-many-ancestors
         """Meta class."""
 
         ordering = ["interface", "vlan_tagging", "flexible_vlan_tagging", "router_vlan"]
+        # ordering = ["vlan_tagging", "flexible_vlan_tagging", "router_vlan"]
 
         # Option for fixing capitalization (i.e. "Snmp" vs "SNMP")
         # verbose_name = "Juniper Interface"
