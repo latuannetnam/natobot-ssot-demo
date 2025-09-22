@@ -17,3 +17,16 @@ class DemoSSoTUIViewSet(NautobotUIViewSet):
     queryset = models.DemoSSoT.objects.all()
     serializer_class = serializers.DemoSSoTSerializer
     table_class = tables.DemoSSoTTable
+
+
+class JuniperInterfaceUIViewSet(NautobotUIViewSet):
+    """ViewSet for JuniperInterface views."""
+
+    bulk_update_form_class = forms.JuniperInterfaceBulkEditForm
+    filterset_class = filters.JuniperInterfaceFilterSet
+    filterset_form_class = forms.JuniperInterfaceFilterForm
+    form_class = forms.JuniperInterfaceForm
+    lookup_field = "pk"
+    queryset = models.JuniperInterface.objects.all()
+    serializer_class = serializers.JuniperInterfaceSerializer
+    table_class = tables.JuniperInterfaceTable

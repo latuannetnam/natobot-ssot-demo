@@ -15,3 +15,15 @@ class DemoSSoTFilterSet(NameSearchFilterSet, NautobotFilterSet):  # pylint: disa
 
         # add any fields from the model that you would like to filter your searches by using those
         fields = "__all__"
+
+
+class JuniperInterfaceFilterSet(NameSearchFilterSet, NautobotFilterSet):  # pylint: disable=too-many-ancestors
+    """Filter for JuniperInterface."""
+
+    class Meta:
+        """Meta attributes for filter."""
+
+        model = models.JuniperInterface
+
+        # add any fields from the model that you would like to filter your searches by using those
+        fields = "__all__"

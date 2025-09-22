@@ -16,3 +16,16 @@ class DemoSSoTSerializer(NautobotModelSerializer, TaggedModelSerializerMixin):  
 
         # Option for disabling write for certain fields:
         # read_only_fields = []
+
+
+class JuniperInterfaceSerializer(NautobotModelSerializer, TaggedModelSerializerMixin):  # pylint: disable=too-many-ancestors
+    """JuniperInterface Serializer."""
+
+    class Meta:
+        """Meta attributes."""
+
+        model = models.JuniperInterface
+        fields = "__all__"
+
+        # Option for disabling write for certain fields:
+        # read_only_fields = []

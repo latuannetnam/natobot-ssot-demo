@@ -23,7 +23,7 @@ class NautobotSsotDemoConfig(NautobotAppConfig):
     default_settings = {}
     caching_config = {}
     docs_view_name = "plugins:nautobot_ssot_demo:docs"
-    searchable_models = ["nautobot_ssot_demo.models.JuniperInterface"]
+    # searchable_models = ["nautobot_ssot_demo.models.JuniperInterface"]
 
 
 config = NautobotSsotDemoConfig  # pylint:disable=invalid-name

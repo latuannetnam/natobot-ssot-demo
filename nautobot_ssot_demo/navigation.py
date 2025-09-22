@@ -14,6 +14,17 @@ items = (
             ),
         ),
     ),
+    NavMenuItem(
+        link="plugins:nautobot_ssot_demo:juniperinterface_list",
+        name="Juniper Interfaces",
+        permissions=["nautobot_ssot_demo.view_juniperinterface"],
+        buttons=(
+            NavMenuAddButton(
+                link="plugins:nautobot_ssot_demo:juniperinterface_add",
+                permissions=["nautobot_ssot_demo.add_juniperinterface"],
+            ),
+        ),
+    ),
 )
 
 menu_items = (

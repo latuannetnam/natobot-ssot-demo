@@ -15,6 +15,7 @@ router = NautobotUIViewSetRouter()
 # The standard is for the route to be the hyphenated version of the model class name plural.
 # for example, ExampleModel would be example-models.
 router.register("demo-ss-o-ts", views.DemoSSoTUIViewSet)
+router.register("juniper-interfaces", views.JuniperInterfaceUIViewSet)
 
 
 urlpatterns = [
