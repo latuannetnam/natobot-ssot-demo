@@ -32,6 +32,7 @@ python = ">=3.8,<3.13"
 # Used for local development
 nautobot = "^2.0.0"
 nautobot-ssot = "^3.0.0"
+invoke = "^2.2.0"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "*"

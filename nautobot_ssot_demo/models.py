@@ -5,6 +5,8 @@ from django.db import models
 
 # Nautobot imports
 from nautobot.apps.models import PrimaryModel, extras_features
+from nautobot.dcim.models import BaseInterface, Interface
+from nautobot.ipam.models import IPAddress, VLAN
 
 # If you want to choose a specific model to overload in your class declaration, please reference the following documentation:
 # how to chose a database model: https://docs.nautobot.com/projects/core/en/stable/plugins/development/#database-models
@@ -32,3 +34,37 @@ class DemoSSoT(PrimaryModel):  # pylint: disable=too-many-ancestors
     def __str__(self):
         """Stringify instance."""
         return self.name
+
+
+@extras_features("custom_links", "custom_validators", "export_templates", "graphql", "webhooks")
+class JuniperInterface(BaseInterface):  # pylint: disable=too-many-ancestors
+    """Model for Juniper Interface."""
+    interface = models.OneToOneField(
+        to=Interface,
+        on_delete=models.CASCADE,        
+        primary_key=True,
+    )
+    # additional model fields
+    vlan_tagging = models.BooleanField(default=False)
+    flexible_vlan_tagging = models.BooleanField(default=False)
+    router_vlan = models.ForeignKey(
+        null=True,
+        blank=True,
+        to=VLAN,
+        on_delete=models.SET_NULL,)
+
+    class Meta:
+        """Meta class."""
+
+        ordering = ["interface", "vlan_tagging", "flexible_vlan_tagging", "router_vlan"]
+
+        # Option for fixing capitalization (i.e. "Snmp" vs "SNMP")
+        # verbose_name = "Juniper Interface"
+
+        # Option for fixing plural name (i.e. "Chicken Tenders" vs "Chicken Tendies")
+        # verbose_name_plural = "Juniper Interfaces"
+
+    def __str__(self):
+        """Stringify instance."""
+        return self.interface.name
+
