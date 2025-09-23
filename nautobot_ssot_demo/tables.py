@@ -45,7 +45,7 @@ class JuniperInterfaceTable(BaseTable):
     pk = ToggleColumn()
     interface = tables.Column(linkify=True)
     device = tables.Column(accessor="interface__device__name", verbose_name="Device", linkify=True)
-    ip_address = tables.Column(accessor="interface__ip_addresses__address", verbose_name="IP Address")
+    ip_addresses = tables.Column(accessor="interface__ip_addresses", verbose_name="IP Address")
     actions = ButtonsColumn(
         models.JuniperInterface,
         # Option for modifying the default action buttons on each row:
@@ -62,7 +62,7 @@ class JuniperInterfaceTable(BaseTable):
             "pk",
             "interface",
             "device",
-            "ip_address",
+            "ip_addresses",
             "vlan_tagging",
             "flexible_vlan_tagging",
             "router_vlan",

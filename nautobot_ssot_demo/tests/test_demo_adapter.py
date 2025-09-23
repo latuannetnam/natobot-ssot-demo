@@ -7,7 +7,7 @@ from unittest.mock import MagicMock
 from django.contrib.contenttypes.models import ContentType
 from nautobot.extras.models import Job, JobResult
 from nautobot.core.testing import TransactionTestCase
-from nautobot_ssot_demo.diffsync.adapters.demo import DemoAdapter
+from nautobot_ssot_demo.diffsync.adapters import DemoRemoteAdapter
 from nautobot_ssot_demo.jobs import DemoDataSource
 
 
@@ -32,7 +32,7 @@ class TestDemoAdapterTestCase(TransactionTestCase):
 
         self.job = DemoDataSource()
         self.job.job_result = JobResult.objects.create(name=self.job.class_path)
-        self.demo = DemoAdapter(job=self.job, sync=None, client=self.demo_client)
+        self.demo = DemoRemoteAdapter(job=self.job, sync=None, client=self.demo_client)
 
     def test_data_loading(self):
         """Test Nautobot Ssot Demo load() function."""
