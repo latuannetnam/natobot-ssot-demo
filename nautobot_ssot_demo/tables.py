@@ -44,8 +44,18 @@ class JuniperInterfaceTable(BaseTable):
 
     pk = ToggleColumn()
     interface = tables.Column(linkify=True)
-    device = tables.Column(accessor="interface__device__name", verbose_name="Device", linkify=True)
+    device = tables.Column(accessor="interface__device", verbose_name="Device", linkify=True)
     ip_addresses = tables.Column(accessor="interface__ip_addresses", verbose_name="IP Address")
+    
+    def render_ip_addresses(self, record):
+        """Render IP addresses as a comma-separated list."""
+        ip_addresses = record.interface.ip_addresses.all()
+        if not ip_addresses:
+            return "—"
+        
+        # Format IP addresses as comma-separated list
+        ip_strings = [str(ip) for ip in ip_addresses]
+        return ", ".join(ip_strings)
     actions = ButtonsColumn(
         models.JuniperInterface,
         # Option for modifying the default action buttons on each row:
