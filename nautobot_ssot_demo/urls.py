@@ -20,6 +20,8 @@ router.register("juniper-interfaces", views.JuniperInterfaceUIViewSet)
 
 urlpatterns = [
     path("docs/", RedirectView.as_view(url=static("nautobot_ssot_demo/docs/index.html")), name="docs"),
+    path("devices/<uuid:pk>/device_detail_tab_1/", views.DeviceDetailAppTabOne.as_view(), name="device_detail_tab_1"),
+    path("devices/<uuid:pk>/juniperinterface_list/", views.JuniperInterfaceUIViewSet.as_view({'get': 'list'}), name="juniperinterface_list"),
 ]
 
 urlpatterns += router.urls

@@ -1,5 +1,8 @@
 """Views for nautobot_ssot_demo."""
 
+from nautobot.apps.views import ObjectView
+from nautobot.dcim.models import Device
+
 from nautobot.apps.views import NautobotUIViewSet
 
 from nautobot_ssot_demo import filters, forms, models, tables
@@ -30,3 +33,15 @@ class JuniperInterfaceUIViewSet(NautobotUIViewSet):
     queryset = models.JuniperInterface.objects.all()
     serializer_class = serializers.JuniperInterfaceSerializer
     table_class = tables.JuniperInterfaceTable
+
+class DeviceDetailAppTabOne(ObjectView):
+    """
+    This view's template extends the device detail template,
+    making it suitable to show as a tab on the device detail page.
+
+    Views that are intended to be for an object detail tab's content rendering must
+    always inherit from nautobot.apps.views.ObjectView.
+    """
+
+    queryset = Device.objects.all()
+    template_name = "nautobot_ssot_demo/tab_device_detail_1.html"
